@@ -1,0 +1,39 @@
+server:
+  port: 7777
+spring:
+#  http:
+#    encoding:
+#      charset: UTF-8
+#      force: true
+#      enabled: true
+  application:
+    name: nacos-restful-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.7:8848
+        namespace: 31afa6f0-820f-4dc4-b94c-3696609b6c53
+      config:
+        namespace: 31afa6f0-820f-4dc4-b94c-3696609b6c53
+#        配置中心地址
+        server-addr: 127.0.0.7:8848
+#        指定配置文件扩展名
+        file-extension: yaml
+        refresh-enabled: true
+        ext-config[0]:
+          data-id: nacos-restful-consumer.yaml
+          group: DEFAULT_GROUP
+          refresh: true
+        ext-config[1]:
+          data-id: ext-config-hhtp.yaml
+          group: COMMON_GROUP
+          refresh: true
+
+nacos-restful-provider:
+  ribbon:
+    NFLoadBalanceRuleClassName: com.netflix.loadbalancer.RandomRule
+dubbo:
+#  registry:
+#    check: false
+  consumer:
+    check: false

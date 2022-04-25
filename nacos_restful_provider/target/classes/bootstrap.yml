@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: nacos-restful-provider
+  cloud:
+    nacos:
+      discoery:
+        server-addr: 127.0.0.7:8848

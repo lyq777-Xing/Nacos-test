@@ -1,0 +1,28 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: dubbo_service2
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.7:8848
+        namespace: 31afa6f0-820f-4dc4-b94c-3696609b6c53
+
+dubbo:
+  registry:
+    address: nacos://127.0.0.7:8848
+    timeout: 25000
+  #  protocol:
+  #    name: dubbo
+  ##    default: false
+  scan:
+    base-package: net.zjitc.nacos.service2.serivce
+  application:
+    id: dubbo_service2
+  consumer:
+    check: false
+  cloud:
+    subscribed-services: 5
+  protocol:
+    port: 20882
